@@ -58,23 +58,14 @@
         },
         "modules": {
           "Reader": {
-            "version": "1.0",
+            "version": "1.24",
             "type": "docker",
             "status": "running",
             "restartPolicy": "always",
             "settings": {
               "image": "${MODULES.Reader}",
-              "createOptions": {}
-            }
-          },
-          "SimulatedTemperatureSensor": {
-            "version": "1.0",
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "always",
-            "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
-              "createOptions": {}
+              "createOptions": {"HostConfig": { "privileged": "true", "Binds": ["/dev/video0:/dev/video0"],
+                "Devices":[{"PathOnHost":"/dev/video0","PathInContainer":"/dev/video0","CgroupPermissions":"mrw"}]}}
             }
           }
         }
