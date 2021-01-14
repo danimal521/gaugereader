@@ -15,7 +15,7 @@ from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient, _
 import uuid
 
 #Azure storage connection string
-m_str_Connect_str = ''
+m_str_Connect_str = 'DefaultEndpointsProtocol=https;AccountName=bikeshop;AccountKey=VO0d/Iwxm86o7WOhfAOTWdp8U46b7eNrYMkpZtgy081AKVIZJ9YbGpxDQc7MyImm8WsVXpSeKCSZwxkjN7mguw==;EndpointSuffix=core.windows.net'
 
 print ("Open camera")
 cap = cv2.VideoCapture(0)
@@ -114,7 +114,7 @@ async def main():
             cap.release()
 
             #This is the connection string to azure
-            connect_str = 'DefaultEndpointsProtocol=https;AccountName=bikeshop;AccountKey=VO0d/Iwxm86o7WOhfAOTWdp8U46b7eNrYMkpZtgy081AKVIZJ9YbGpxDQc7MyImm8WsVXpSeKCSZwxkjN7mguw==;EndpointSuffix=core.windows.net'
+            connect_str = ''
         
             blob_service_client = BlobServiceClient.from_connection_string(connect_str)
             
